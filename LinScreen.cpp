@@ -78,7 +78,7 @@ void ForceScreenDraw(void)
   ForcedScreenDraw = true;
 }
 
-bool IsTextScrollArea(i32, i32)
+bool IsTextScrollArea(int, int)
 {
   return false;
 }
@@ -824,6 +824,8 @@ void UpdateScreenArea(
 
 
 
+// TODO: This was undefined for some reason.
+bool virtualFullscreen = false;
 
 bool pc1, pc2;
 void display (void){

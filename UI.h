@@ -151,7 +151,7 @@ void UI_ScreenStartUpdates(void);
 void UI_ScreenEndUpdates(void);
 void UI_ScreenPresent(void);  // Called if any changes to screen
 #ifdef _LINUX
-bool UI_ProcessOption(char **argv,i32 &argc);
+bool UI_ProcessOption(char **argv,int &argc);
 #else
 bool UI_ProcessOption(char *key, char *value);
 #endif

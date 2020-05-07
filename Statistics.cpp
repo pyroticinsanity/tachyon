@@ -94,8 +94,8 @@ void GetMonsterName(int monsterType, int graphic, char *name)
 void Statistics(void)
 {
   int i, j, why, total, len, maxLen;
-  unsigned int *pRecord;
-  unsigned int key;
+  ui32 *pRecord;
+  ui32 key;
   LISTING list;
   char line[80];
   unsigned int stats[NUM_MONSTER_TYPE][4][DMW_numWhy];

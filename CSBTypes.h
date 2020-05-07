@@ -59,20 +59,60 @@ typedef unsigned __int32 ui32; // PRS 20190701
 typedef __int32          i32;  // PRS 20190701
 #else
 # ifdef _LINUX
-  typedef guint32 HWND;
   typedef void* HDC; // I might change this later...
   typedef signed char i8;     // signed 8-bit integer
   typedef unsigned char ui8;
+
+#ifdef _3DS
+  typedef uint32_t HWND;
+  typedef int16_t i16;  // signed 16-bit integer
+  typedef uint16_t ui16;
+  typedef int32_t i32;  // signed 32-bit integer
+  typedef uint32_t ui32;
+  typedef int64_t i64; //signed 64-bit integer
+  typedef i8 *pnt;
+  typedef ui8 *upnt;
+  typedef uint64_t ui64;
+  typedef uint32_t bool32;
+  typedef uint16_t HTIMER;
+  typedef uint32_t guint32;
+  typedef uint64_t guint64;
+  #define TRUE true
+  #define FALSE false
+  #define GPOINTER_TO_INT(p) ((int)  (long) (p))
+  #define GINT_TO_POINTER(i) ((void*) (long) (i))
+
+  #define gboolean bool
+  #define gchar char
+  #define g_critical printf
+  #define g_error printf
+
+   #define CLAMP( X, MIN, MAX )  ( (X)<(MIN) ? (MIN) : ((X)>(MAX) ? (MAX) : (X)) )
+
+  #define GUINT16_SWAP_LE_BE(val)              ((uint16_t) ( \
+    (((uint16_t) (val) & (uint16_t) 0x00ffU) << 8) | \
+    (((uint16_t) (val) & (uint16_t) 0xff00U) >> 8)))
+
+#  define GINT16_FROM_BE(val)                ((int16_t) GUINT16_SWAP_LE_BE (val))
+#  define GUINT16_FROM_BE(val)         (GUINT16_SWAP_LE_BE (val))
+
+#else
+  typedef guint32 HWND;
   typedef gint16 i16;  // signed 16-bit integer
   typedef guint16 ui16;
   typedef gint32 i32;  // signed 32-bit integer
   typedef guint32 ui32;
   typedef gint64 i64; //signed 64-bit integer
-  typedef i8 *pnt;
-  typedef ui8 *upnt;
+
   typedef guint64 ui64;
   typedef guint32 bool32;
   typedef guint16 HTIMER;
+
+#endif
+
+  typedef i8 *pnt;
+  typedef ui8 *upnt;
+
   typedef struct
   {
       i32 x;

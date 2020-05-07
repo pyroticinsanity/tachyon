@@ -1098,3 +1098,4 @@ bool IsRecordFileRecording(void)            {return RecordFile.IsRecording();}
 void RecordFile_Record(MouseQueueEnt *MQ)   {RecordFile.Record(MQ);}
 void RecordFile_Record(const char *l)    {RecordFile.Record(l);}
 void RecordFile_Record(int x, int y, int z) {RecordFile.Record(x, y, z);}
+void RecordFile_Record(long x, long y, long z) {RecordFile.Record(x, y, z);}

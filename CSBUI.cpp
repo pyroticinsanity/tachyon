@@ -914,8 +914,8 @@ i32 CSBUI(CSB_UI_MESSAGE *msg)
 //    fprintf(f,"CSBUI enter type = %d", msg->type);
 //    fclose(f);
 //  };
-  try
-  {
+ // try
+ // {
     switch (msg->type)
     {
     case UIM_INITIALIZE:
@@ -1300,8 +1300,8 @@ i32 CSBUI(CSB_UI_MESSAGE *msg)
 //      fclose(f);
 //    };
     return UI_STATUS_NORMAL;
-  }
-  catch (i32 )
+//  }
+  /*catch (i32 )
   {
     CloseTraceFile();
 //    FILE *f;
@@ -1309,8 +1309,8 @@ i32 CSBUI(CSB_UI_MESSAGE *msg)
 //    fprintf(f,"Caught 0x%x\n", v);
 //    fclose(f);
     return UI_STATUS_TERMINATE;
-  }
-  catch(...)
+  }*/
+ /* catch(...)
   {
     if (!crash)
     {
@@ -1334,7 +1334,7 @@ i32 CSBUI(CSB_UI_MESSAGE *msg)
       crash = true;
     };
     return UI_STATUS_TERMINATE;
-  }  ;
+  }  ;*/
 };
 
 
@@ -1413,7 +1413,8 @@ i32 UI_DIRECT_CONIN(void)
 
 void UI_Die(int v)
 {
-  throw  v;
+  //throw  v;
+  exit(1);
 }
 
 void UI_Sleep(i32 milliseconds)

@@ -836,6 +836,12 @@ void MemMove(void *src, void *dest, i32 byteCount) // TAG0009dc
   memmove(dest, src, byteCount);
 }
 
+void MemMove(void *src, void *dest, int byteCount) // TAG0009dc
+{
+  memmove(dest, src, byteCount);
+}
+
+
 void ClearMemory(ui8 *dest,i32 numByte) // TAG000a84
 {
   memset(dest,0,numByte);
@@ -1673,7 +1679,7 @@ void QuePrintLines(i32 color, const char *text, bool translate)
   };
 }
 
-int TextWidth(void)
+i32 TextWidth(void)
 {
 #ifdef _MSVC_CE2002ARM
   if (overlappingText) return 240;

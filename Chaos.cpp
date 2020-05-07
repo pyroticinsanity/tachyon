@@ -1062,12 +1062,12 @@ void StoreLong(ui8 *addr, i32 data)
   //boundaries.  In the runtime we moved all 32-bit words
   //to conform with this requirement.  But here we simply
   //fetch and store them by referencing two 16-bit words.
-#ifdef _bigEndian
-  xxxxx
-#else
+//#ifdef _bigEndian TODO
+ // xxxxx
+//#else
   *((ui16 *)(addr)) = (ui16)((ui32)data);
   *((ui16 *)(addr+2)) = (ui16)(((ui32)data)>>16);
-#endif
+//#endif
 }
 
 void StoreLong(aReg addr, i32 data)
@@ -1082,11 +1082,11 @@ i32 LoadLong(void *addr)
   //boundaries.  In the runtime we moved all 32-bit words
   //to conform with this requirement.  But here we simply
   //fetch and store them by referencing two 16-bit words.
-#ifdef _bigEndian
-  xxxxx
-#else
+//#ifdef _bigEndian TODO
+ // xxxxx
+//#else
   return (i32)((*(ui16 *)((ui8 *)addr)) | ((ui32)((*(ui16 *)((ui8 *)addr+2)))<<16));
-#endif
+//#endif
 }
 
 i32 LoadLong(aReg addr)

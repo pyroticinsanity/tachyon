@@ -33,7 +33,9 @@
 #  include <stdlib.h>
 #  include <stdio.h>
 #  include <memory.h>
+#ifndef _3DS
 #  include <glib.h>
+#endif
 #  include <sys/stat.h>
 #  ifdef USE_OLD_GTK
 #    include <gtk/gtk.h>
